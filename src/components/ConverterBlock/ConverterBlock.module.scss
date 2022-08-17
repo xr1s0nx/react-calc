@@ -1,0 +1,53 @@
+.mainBlock {
+   width: 100%;
+   background-color: #fff;
+   border-radius: 20px;
+   padding: 20px;
+   margin-top: 50px;
+}
+
+.buttons {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+
+   .toButtons,
+   .fromButtons {
+      flex-direction: column;
+      height: 200px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 5px;
+   }
+}
+
+.buttonTo,
+.buttonFrom {
+   display: flex;
+   width: 50px;
+   height: 30px;
+   align-items: center;
+   justify-content: center;
+   background: transparent;
+   border-radius: 5px;
+   border: 1px solid #000;
+   cursor: pointer;
+
+   & + & {
+      margin-top: 5px;
+   }
+
+   &.active {
+      background-color: red;
+   }
+}
+
+.mainContent {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.currentRate {
+   font-size: 15px;
+}
