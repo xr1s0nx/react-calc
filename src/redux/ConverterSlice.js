@@ -2,12 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     toValue: 0,
-    fromValue: 0,
+    fromValue: '',
     load: false,
     currentRate: 0,
     allRatesNames: [],
     currentFromRate: 'USD',
-    currentToRate: 'RUB'
+    currentToRate: 'RUB',
+    fromVisible: false,
+    toVisible: false,
 }
 
 export const ConverterSlice = createSlice({
@@ -44,12 +46,20 @@ export const ConverterSlice = createSlice({
             let oldTo = state.currentToRate;
             state.currentFromRate = oldTo;
             state.currentToRate = oldFrom;
+        },
+        changeVisibleFrom: (state, action) => {
+            debugger
+            state.fromVisible = action.payload;
+        },
+        changeVisibleTo: (state, action) => {
+            debugger
+            state.toVisible = action.payload;
         }
 
     }
 })
 
 
-export const { switchRates, setCurrentFromRate, setCurrentToRate, setRatesNames, setCurrentRate, changeValues, toggleLoad } = ConverterSlice.actions;
+export const {changeVisibleTo, switchRates, setCurrentFromRate, setCurrentToRate, setRatesNames, setCurrentRate, changeValues, toggleLoad, changeVisibleFrom } = ConverterSlice.actions;
 
 export default ConverterSlice.reducer;

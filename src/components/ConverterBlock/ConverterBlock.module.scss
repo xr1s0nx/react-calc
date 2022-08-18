@@ -44,10 +44,26 @@
 
 .mainContent {
    display: flex;
-   align-items: center;
+   align-items: flex-end;
    justify-content: space-between;
 }
 
 .currentRate {
    font-size: 15px;
+   margin-bottom: 25px;
+}
+
+.switch {
+   width: 35px;
+   height: 35px;
+   background: rgb(232, 232, 232);
+   border-radius: 5px;
+   border: 1px solid rgb(197, 197, 197);
+   padding: 5px;
+   cursor: pointer;
+   margin-bottom: 25px;
+
+   img {
+      width: 100%;
+   }
 }

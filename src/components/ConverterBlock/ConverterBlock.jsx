@@ -3,7 +3,8 @@ import styles from "./ConverterBlock.module.scss";
 import From from "./From/From";
 import To from "./To/To";
 import * as axios from "axios";
-import { setCurrentRate, setCurrentToRate, setRatesNames, setCurrentFromRate, switchRates } from "../../redux/ConverterSlice";
+import { setCurrentRate,  setRatesNames, switchRates } from "../../redux/ConverterSlice";
+import switchImg from '../../assets/imgs/switch.png'
 import { useDispatch, useSelector } from "react-redux";
 
 const ConverterBlock = () => {
@@ -34,40 +35,11 @@ const ConverterBlock = () => {
          <h1 className={styles.currentRate}>
             1 {ConverterSlice.currentFromRate} = {ConverterSlice.currentRate} {ConverterSlice.currentToRate}
          </h1>
-         <div className={styles.buttons}>
-            <div className={styles.fromButtons}>
-               {ConverterSlice.allRatesNames.map((item, i) => {
-                  return (
-                     <button
-                        onClick={() => {
-                           dispatch(setCurrentFromRate(item));
-                        }}
-                        className={ConverterSlice.currentFromRate === item ? `${styles.active} ${styles.buttonFrom}` : styles.buttonFrom}
-                        key={i}
-                     >
-                        {item}
-                     </button>
-                  );
-               })}
-            </div>
-            <div className={styles.toButtons}>
-               {ConverterSlice.allRatesNames.map((item, i) => {
-                  return (
-                     <button
-                        onClick={() => {
-                           dispatch(setCurrentToRate(item));
-                        }}
-                        className={ConverterSlice.currentToRate === item ? `${styles.active} ${styles.buttonTo}` : styles.buttonTo}
-                        key={i}
-                     >
-                        {item}
-                     </button>
-                  );
-               })}
-            </div>
-         </div>
          <div className={styles.mainContent}>
             <From />
+            <button className={styles.switch} onClick={() => {dispatch(switchRates())}}>
+               <img src={switchImg} alt="" />
+            </button>
             <To />
          </div>
       </div>
